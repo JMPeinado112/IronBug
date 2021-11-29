@@ -2,7 +2,7 @@ import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql. *; 
+import java.sql.*; 
 @SuppressWarnings("serial")
 public class iniciarsesion extends JPanel implements ActionListener{
 	Conexion conexion = new Conexion();
@@ -40,7 +40,9 @@ public class iniciarsesion extends JPanel implements ActionListener{
 			try {
 				con = conexion.getConnection();
 				sql = con.createStatement();
-				sql.executeUpdate("INSERT INTO `usuarioj`(`id`, `Nombre`, `contraseña`) VALUES (null,"+textField1.getText()+","+textField2.getText()+")");
+				String a = textField1.getText();
+				String b = textField2.getText();
+				sql.executeUpdate("INSERT INTO `usuarioj`(`id`, `Nombre`, `contraseÃ±a`) VALUES (null,'"+textField1.getText() +"','"+textField2.getText()+"')");
 				JFrame Marco = (JFrame)SwingUtilities.getWindowAncestor(this);
 				Marco.remove(this);
 				Marco.getContentPane().add(new MyFrame());
